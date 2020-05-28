@@ -1,0 +1,45 @@
+{% load cms_tags static sekizai_tags i18n %}
+
+{% if table_view.error_message %}
+    <div class="alert alert-danger" role="alert">DjangoCMS_Table2 Error: {{ table_view.error_message }}</div>
+{%  else %}
+
+    <table id="{{ instance.table_id }}" class="{{ table_view.classes }}">
+        <caption>{{ instance.name }}</caption>
+
+        {% for row in table_view.rows %}
+
+            {#	Set Header row    #}
+            {% if row.open_row_headers %}
+                {% if row.is_header_row %}
+                    <thead class="{{ row.classes }}">
+                {% elif row.is_footer_row %}
+                    <tfoot class="{{ row.classes }}">
+                {% else %}
+                    <tbody class="{{ row.classes }}">
+                {% endif %}
+            {% endif %}
+                <tr>
+                {#  Set Cell Values   #}
+                {% for cell in row.cells %}
+                    {% if not cell.is_merged %}
+                        {% if cell.is_header_cell %}<th{% else %}<td{% endif %} class="{{ cell.classes }}" {{ cell.merge_span }} {{ cell.style|safe }} >
+                            {{ cell.value }}
+                        {% if cell.is_header_cell %}</th> {% else %}</td>{% endif %}
+                    {% endif %}
+                {% endfor %}
+                </tr>
+
+            {% if row.close_row_headers %}
+                {% if row.is_header_row %}
+                    </thead>
+                {% elif row.is_footer_row  %}
+                    </tfoot>
+                {% else %}
+                    </tbody>
+                {% endif %}
+            {% endif %}
+
+        {% endfor %}
+    </table>
+{% endif %}

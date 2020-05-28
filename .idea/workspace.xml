@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="efbde34d-363e-4737-b7dc-860d2c85b48b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/djangocms-table.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/migrations/0002_auto_20200528_1227.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/migrations/0003_auto_20200528_1229.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/migrations/0004_auto_20200528_1235.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/migrations/0005_auto_20200528_1237.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/migrations/0006_auto_20200528_1239.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/static/djangocms_table/ext-input/css/handsontable.full.modified.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/static/djangocms_table/ext-input/css/handsontable.full.modified.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/static/djangocms_table/ext-input/css/jquery.contextMenu.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/static/djangocms_table/ext-input/css/jquery.contextMenu.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/static/djangocms_table/ext-input/handsontable/0.21.0/handsontable.full.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/static/djangocms_table/ext-input/handsontable/0.31.1/handsontable.full.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/static/djangocms_table/ext-input/handsontable/0.31.1/handsontable.full.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/static/djangocms_table/ext-input/handsontable/0.31.1/handsontable.full.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/static/djangocms_table/ext-input/handsontable/0.31.1/handsontable.full.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/static/djangocms_table/ext-input/js/bootstrap3-typeahead.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/static/djangocms_table/ext-input/js/bootstrap3-typeahead.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/static/djangocms_table/ext-input/js/jquery-ui.position.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/static/djangocms_table/ext-input/js/jquery.contextMenu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/static/djangocms_table/ext-input/js/jquery.contextMenu.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/static/djangocms_table/ext-input/js/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/static/djangocms_table/ext-input/js/json2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/static/djangocms_table/ext-input/js/json2.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/templates/djangocms_table/input-widget/table-widget.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/templates/djangocms_table/output-render/table.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangocms_table/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangocms_table/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangocms_table/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangocms_table/cms_plugins.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangocms_table/cms_plugins.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangocms_table/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangocms_table/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangocms_table/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangocms_table/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangocms_table/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangocms_table/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangocms_table/south_migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangocms_table/south_migrations/0002_rename_plugin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangocms_table/south_migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangocms_table/static/table/css/jquery.contextMenu.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangocms_table/static/table/css/jquery.handsontable.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangocms_table/static/table/img/table.png" beforeDir="false" afterPath="$PROJECT_DIR$/djangocms_table/static/djangocms_table/img/table.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangocms_table/static/table/js/bootstrap-typeahead.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangocms_table/static/table/js/jquery-1.8.3.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangocms_table/static/table/js/jquery.contextMenu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangocms_table/static/table/js/jquery.handsontable.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangocms_table/static/table/js/jquery.ui.position.js" beforeDir="false" afterPath="$PROJECT_DIR$/djangocms_table/static/djangocms_table/ext-input/js/jquery-ui.position.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangocms_table/static/table/js/json2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangocms_table/templates/cms/plugins/table.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangocms_table/templates/cms/plugins/widgets/table.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangocms_table/widgets.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangocms_table/widgets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schemamigration.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1cW4qXLrP73VbSA7Gnqc3n5ynwl" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/djangocms_table/static" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="A:\Dropbox\Documents\Dev\Projects\djangocms-table\djangocms_table\static" />
+      <recent name="A:\Dropbox\Documents\Dev\Projects\djangocms-table\djangocms_table\templates" />
+      <recent name="A:\Dropbox\Documents\Dev\Projects\djangocms-table\djangocms_table" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="efbde34d-363e-4737-b7dc-860d2c85b48b" name="Default Changelist" comment="" />
+      <created>1590631206338</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1590631206338</updated>
+      <workItem from="1590631208544" duration="4403000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2140" y="256" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590632603153">
+      <screen x="1920" y="0" width="1600" height="1200" />
+    </state>
+    <state x="2140" y="256" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1160/-1600.0.1600.1200/1920.0.1600.1200@1920.0.1600.1200" timestamp="1590632603153" />
+    <state x="2466" y="356" key="FileChooserDialogImpl" timestamp="1590632600199">
+      <screen x="1920" y="0" width="1600" height="1200" />
+    </state>
+    <state x="2466" y="356" key="FileChooserDialogImpl/0.0.1920.1160/-1600.0.1600.1200/1920.0.1600.1200@1920.0.1600.1200" timestamp="1590632600199" />
+    <state x="2401" y="335" width="587" height="592" key="find.popup" timestamp="1590634509400">
+      <screen x="1920" y="0" width="1600" height="1200" />
+    </state>
+    <state x="2401" y="335" width="587" height="592" key="find.popup/0.0.1920.1160/-1600.0.1600.1200/1920.0.1600.1200@1920.0.1600.1200" timestamp="1590634509400" />
+  </component>
+</project>

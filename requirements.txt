@@ -1,3 +1,0 @@
-transifex-client
-django-cms>=3.1
-django

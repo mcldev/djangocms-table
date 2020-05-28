@@ -1,0 +1,185 @@
+<div id="table"></div>
+<div id="table-settings"></div>
+<script type="text/javascript">
+//<![CDATA]
+
+	(function($) {
+	
+	$(document).ready(function () {
+
+        {% if data %}var data = {{ data|safe }};{% endif %}
+
+        var container = document.getElementById("table");
+        var table_settings_id = '#';
+        {% if table_settings_id %} table_settings_id += "{{ table_settings_id }}"; {% endif %}
+        var table_settings = $(table_settings_id);
+
+        //Set Rendering Functions for Headers or Values
+        //*******************************************
+        var headerRenderer = function (instance, td, row, col, prop, value, cellProperties) {
+            Handsontable.TextCell.renderer.apply(this, arguments);
+            td.style.background = '#EAEAEA';
+            td.style.fontWeight = 'bold';
+            //td.style.textAlign = 'center';
+        };
+
+        var valueRenderer = function (instance, td, row, col, prop, value, cellProperties) {
+            Handsontable.TextCell.renderer.apply(this, arguments);
+            td.style.background = 'white !important';
+            td.style.fontWeight = 'normal !important';
+        };
+
+		//Get Col and Row Headers
+        //*******************************************
+		var header_rows_top = $("#id_header_rows_top").val();
+		var header_rows_left = $("#id_header_rows_left").val();
+		var footer_rows = $("#id_footer_rows").val();
+
+		$("#id_header_rows_top").change(function(){
+			header_rows_top = $(this).val();
+            validate_and_render();
+		});
+		$("#id_header_rows_left").change(function(){
+			header_rows_left = $(this).val();
+			validate_and_render();
+		});
+        $("#id_footer_rows").change(function(){
+			footer_rows = $(this).val();
+            validate_and_render();
+		});
+
+        // Validate Rows and Render
+        //*******************************************
+        function validate_and_render() {
+            if (input_table != undefined) {
+                input_table.validateCells();
+                input_table.render();
+                input_table.setDataAtCell(0,0, input_table.getDataAtCell(0, 0))
+            }
+        }
+
+        // Put the data into an array
+        //*******************************************
+        function set_table_data() {
+            if (typeof(input_table) != "undefined") {
+                $("#id_{{ name }}").val(JSON.stringify(input_table.getData()));
+                set_table_settings();
+             }
+        }
+        function set_table_settings() {
+            if (typeof(input_table) != "undefined" && input_table){
+                var settings = {};
+                settings.mergeCells = input_table.mergeCells.mergedCellInfoCollection;
+                settings.alignment = get_cell_alignment_from_table();
+                if (table_settings){
+                    table_settings.val(JSON.stringify(settings));
+                }
+            }
+        }
+        function get_cell_alignment_from_table(){
+            if (input_table) {
+                var alignment = [];
+                for(r = 0; r < getRowCount(); r++){
+                    for(c = 0; c < getColCount(); c++){
+                        var clsName = input_table.getCellMeta(r, c).className;
+                        if(clsName){
+                            alignment.push({"row": r, "col": c, "className": clsName})
+                        }
+                    }
+                }
+
+                return alignment;
+            }
+        }
+        function get_cell_alignment_from_field(){
+            if (table_settings) {
+                settings = get_json_or_false(table_settings.val());
+                if(settings && 'alignment' in settings) {
+                    return settings.alignment;
+                }
+            }
+            return [];
+        }
+        function get_merge_cells_from_field(){
+            if (table_settings) {
+                settings = get_json_or_false(table_settings.val());
+                if(settings && 'mergeCells' in settings) {
+                    return settings.mergeCells;
+                }
+            }
+            return true;
+        }
+
+        function get_json_or_false(the_string) {
+            try {
+                return JSON.parse(the_string);
+            }
+            catch (e) {
+                return false;
+            }
+        }
+
+	  	// Set Table Options
+        //*******************************************
+        var table_options = {
+            {% if data %}data: data,{% endif %}
+            startRows: 5,
+            startCols: 5,
+            rowHeaders: true,
+            colHeaders: true,
+            contextMenu: true,
+            manualColumnMove: true,
+            manualRowMove: true,
+            afterRender: function (changes, source) {set_table_data();},
+{#            afterChange: function (changes, source) {set_table_data();},#}
+{#            afterCreateRow: function (index, amount) {set_table_data();},#}
+{#            afterCreateCol: function (index, amount) {set_table_data();},#}
+{#            afterRemoveRow: function (index, amount) {set_table_data();},#}
+{#            afterRemoveCol: function (index, amount) {set_table_data();},#}
+{#            afterRowMove: function (startRow, endRow) {set_table_data();},#}
+{#            afterColumnMove: function (startColumn, endColumn) {set_table_data();},#}
+
+            cells: function (row, col, prop) {
+
+                var cellProperties = {
+                    renderer: valueRenderer
+                };
+
+                if (row < Number(header_rows_top) || col < Number(header_rows_left) || (row >= (getRowCount() - Number(footer_rows)) )) {
+                    cellProperties = {
+                        type: 'text',
+                        renderer: headerRenderer,
+                        validator: undefined //must be set explicitly as handsontable isn't working!
+                    };
+                }
+                return cellProperties;
+            },
+            cell: get_cell_alignment_from_field(),
+            mergeCells: get_merge_cells_from_field(),
+
+        };
+
+        //Build Table - then render on first load
+        //*******************************************
+        var input_table = new Handsontable(container, table_options);
+        validate_and_render();
+
+		function getRowCount() {
+            if(input_table != undefined) {
+                return input_table.countRows();
+            }
+        }
+    	function getColCount() {
+            if(input_table != undefined) {
+                return input_table.countCols();
+            }
+        }
+	});	 
+})(jQuery); 
+
+
+//]]>
+</script>
+<style type="text/css">
+	#id_{{ name }}{display:none}
+</style>
