@@ -9,7 +9,7 @@ class TableModel(CMSPlugin):
     TableModel plugin
     """
 
-    name = models.CharField(_("name"), max_length=256)
+    name = models.TextField(_("name"), blank=True, null=True)
 
     # Number of Header Rows: Top, Left and Footer Rows: bottom
     header_rows_top = models.PositiveSmallIntegerField(_("Top"), default=1)
