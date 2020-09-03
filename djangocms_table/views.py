@@ -112,6 +112,8 @@ class TableView:
                     if row_idx < self.table_instance.header_rows_top or col_idx < self.table_instance.header_rows_left:
                         cell.classes = self.table_instance.header_cell_classes
                         cell.is_header_cell = True
+                        cell.is_row_header_cell = row_idx >= self.table_instance.header_rows_top and col_idx < self.table_instance.header_rows_left
+                        cell.is_col_header_cell = row_idx < self.table_instance.header_rows_top
                     else:
                         cell.classes = self.table_instance.cell_classes
 

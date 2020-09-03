@@ -23,7 +23,17 @@
                 {#  Set Cell Values   #}
                 {% for cell in row.cells %}
                     {% if not cell.is_merged %}
-                        {% if cell.is_header_cell %}<th{% else %}<td{% endif %} class="{{ cell.classes }}" {{ cell.merge_span }} {{ cell.style|safe }} >
+                        {% if cell.is_header_cell %}
+                            <th
+                                {% if cell.is_row_header_cell %}
+                                    scope="row"
+                                {% elif cell.is_col_header_cell %}
+                                    scope="col"
+                                {% endif %}
+                        {% else %}
+                            <td
+                        {% endif %}
+                            class="{{ cell.classes }}" {{ cell.merge_span }} {{ cell.style|safe }} >
                             {{ cell.value }}
                         {% if cell.is_header_cell %}</th> {% else %}</td>{% endif %}
                     {% endif %}
