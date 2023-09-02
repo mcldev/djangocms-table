@@ -127,16 +127,19 @@ class TableView:
                 start_col = merge['col']
                 row_span =  merge['rowspan']
                 col_span = merge['colspan']
-                # TODO - Review this as HandsonTable are about to release fix for merge cells info
-                # https://github.com/handsontable/handsontable/issues/3473
                 merged_rows = range(start_row, min(self.max_rows, start_row + row_span))
                 merged_cols = range(start_col, min(self.max_cols, start_col + col_span))
                 for r in merged_rows:
                     for c in merged_cols:
                         self.rows[r].cells[c].is_merged = True
 
-                self.rows[start_row].cells[start_col].is_merged = False
-                self.rows[start_row].cells[start_col].merge_span = " colspan={} rowspan={} ".format(col_span, row_span)
+                try:
+                    # This is a workaround for old MergeCells function which allowed for rows/cols outside the table
+                    self.rows[start_row].cells[start_col].is_merged = False
+                    self.rows[start_row].cells[start_col].merge_span = " colspan={} rowspan={} ".format(col_span, row_span)
+                except Exception as err:
+                    print(err)
+
 
         if self.alignment:
             for cls in self.alignment:

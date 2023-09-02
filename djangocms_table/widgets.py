@@ -11,17 +11,11 @@ class TableWidget(Textarea):
     class Media:
         js = (
                 'djangocms_table/ext-input/js/jquery.min.js',
-                'djangocms_table/ext-input/handsontable/0.21.0/handsontable.full.min.js',
-                # 'djangocms_table/ext-input/handsontable/0.31.1/handsontable.full.min.js',
-                'djangocms_table/ext-input/js/jquery.contextMenu.js',
-                'djangocms_table/ext-input/js/jquery-ui.position.js',
-                'djangocms_table/ext-input/js/json2.js',
-                'djangocms_table/ext-input/js/bootstrap3-typeahead.js',
+                'djangocms_table/ext-input/handsontable/0.38.1/handsontable.full.min.js',
             )
         css = {
             'all': (
-                'djangocms_table/ext-input/css/handsontable.full.modified.min.css',
-                'djangocms_table/ext-input/css/jquery.contextMenu.css',
+                'djangocms_table/ext-input/handsontable/0.38.1/handsontable.full.min.css',
                 ),
         }
 
