@@ -23,6 +23,7 @@ class TablePlugin(CMSPluginBase):
             'fields': (('header_rows_top', 'header_rows_left', 'footer_rows'),)
         }),
         (None, {
+            'classes': ('remove_module_class',),
             'fields': ('table_data', 'csv_upload', 'table_settings')
         }),
         ('Advanced', {

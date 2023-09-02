@@ -23,6 +23,10 @@ class TableForm(forms.ModelForm):
     csv_upload = forms.FileField(label=_("upload .csv file"), help_text=_("Upload a .csv file to populate the table."),
                                  required=False)
 
+    def clean_table_data(self):
+        if self.cleaned_data['table_data']:
+            return self.cleaned_data['table_data'].replace("null", '""')
+
     def clean_csv_upload(self):
         if self.cleaned_data['csv_upload']:
             # Make sure we decode the file to text
@@ -34,6 +38,27 @@ class TableForm(forms.ModelForm):
                 data.append(row)
             self.cleaned_data['table_data'] = json.dumps(data)
             self.csv_uploaded = True
+
+    def clean_table_settings(self):
+        if self.cleaned_data['table_settings']:
+            # This is a cleanup for table settings outside the scope of the table_data - caused by faulty mergeCells
+            table_settings = json.loads(self.cleaned_data['table_settings'])
+            table_data = json.loads(self.cleaned_data['table_data'])
+            max_rows = len(table_data)
+            max_cols = max([len(row) for row in table_data])
+            if table_settings['mergeCells']:
+                clean_merge = []
+                for merge in table_settings['mergeCells']:
+                    if merge['row'] <= max_rows and merge['col'] <= max_cols:
+                        clean_merge.append(merge)
+                table_settings['mergeCells'] = clean_merge
+            if table_settings['alignment']:
+                clean_align = []
+                for align in table_settings['alignment']:
+                    if align['row'] <= max_rows and align['col'] <= max_cols:
+                        clean_align.append(align)
+                table_settings['alignment'] = clean_align
+            return json.dumps(table_settings)
 
     class Meta:
         model = TableModel

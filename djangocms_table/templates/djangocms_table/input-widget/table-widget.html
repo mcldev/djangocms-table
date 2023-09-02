@@ -1,30 +1,30 @@
 <div id="table"></div>
 <div id="table-settings"></div>
 <script type="text/javascript">
-//<![CDATA]
 
 	(function($) {
 	
 	$(document).ready(function () {
 
+        // This removes the default field class from the table and preserves the handsontable formatting
+        $('.remove_module_class').removeClass('module');
+
         {% if data %}var data = {{ data|safe }};{% endif %}
 
         var container = document.getElementById("table");
-        var table_settings_id = '#';
-        {% if table_settings_id %} table_settings_id += "{{ table_settings_id }}"; {% endif %}
+        var table_settings_id = '#{{ table_settings_id }}';
         var table_settings = $(table_settings_id);
 
         //Set Rendering Functions for Headers or Values
         //*******************************************
         var headerRenderer = function (instance, td, row, col, prop, value, cellProperties) {
-            Handsontable.TextCell.renderer.apply(this, arguments);
+            Handsontable.renderers.TextRenderer.apply(this, arguments);
             td.style.background = '#EAEAEA';
             td.style.fontWeight = 'bold';
-            //td.style.textAlign = 'center';
         };
 
         var valueRenderer = function (instance, td, row, col, prop, value, cellProperties) {
-            Handsontable.TextCell.renderer.apply(this, arguments);
+            Handsontable.renderers.TextRenderer.apply(this, arguments);
             td.style.background = 'white !important';
             td.style.fontWeight = 'normal !important';
         };
@@ -69,7 +69,7 @@
         function set_table_settings() {
             if (typeof(input_table) != "undefined" && input_table){
                 var settings = {};
-                settings.mergeCells = input_table.mergeCells.mergedCellInfoCollection;
+                settings.mergeCells = input_table.getPlugin('mergeCells').mergedCellsCollection.mergedCells;
                 settings.alignment = get_cell_alignment_from_table();
                 if (table_settings){
                     table_settings.val(JSON.stringify(settings));
@@ -119,6 +119,7 @@
             }
         }
 
+
 	  	// Set Table Options
         //*******************************************
         var table_options = {
@@ -130,15 +131,10 @@
             contextMenu: true,
             manualColumnMove: true,
             manualRowMove: true,
+            manualColumnResize: true,
+            manualRowResize: true,
+            stretchH: 'all',
             afterRender: function (changes, source) {set_table_data();},
-{#            afterChange: function (changes, source) {set_table_data();},#}
-{#            afterCreateRow: function (index, amount) {set_table_data();},#}
-{#            afterCreateCol: function (index, amount) {set_table_data();},#}
-{#            afterRemoveRow: function (index, amount) {set_table_data();},#}
-{#            afterRemoveCol: function (index, amount) {set_table_data();},#}
-{#            afterRowMove: function (startRow, endRow) {set_table_data();},#}
-{#            afterColumnMove: function (startColumn, endColumn) {set_table_data();},#}
-
             cells: function (row, col, prop) {
 
                 var cellProperties = {
@@ -176,10 +172,8 @@
         }
 	});	 
 })(jQuery); 
-
-
-//]]>
 </script>
-<style type="text/css">
+
+<style>
 	#id_{{ name }}{display:none}
 </style>
