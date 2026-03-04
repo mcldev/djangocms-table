@@ -2,15 +2,16 @@ from setuptools import setup
 from djangocms_table import __version__
 
 INSTALL_REQUIRES = [
-    'transifex-client',
-    'django-cms>=3.5',
-    'django',
+    'django-cms>=3.11,<3.12',
+    'django>=4.2,<5.0',
 ]
 
 CLASSIFIERS = [
     'Development Status :: 5 - Production/Stable',
     'Environment :: Web Environment',
     'Framework :: Django',
+    'Framework :: Django :: 4.2',
+    'Framework :: Django CMS :: 3.11',
     'Intended Audience :: Developers',
     'License :: OSI Approved :: BSD License',
     'Operating System :: OS Independent',
@@ -18,13 +19,9 @@ CLASSIFIERS = [
     'Topic :: Software Development',
     'Topic :: Software Development :: Libraries :: Application Frameworks',
     'Programming Language :: Python :: 3',
-    'Programming Language :: Python :: 3.6',
-    'Programming Language :: Python :: 3.7',
-    'Programming Language :: Python :: 3.8',
-    'Framework :: Django',
-    'Framework :: Django :: 1.11',
-    'Framework :: Django :: 2.2',
-    'Framework :: Django :: 3.2',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
 ]
 
 setup(
@@ -36,6 +33,7 @@ setup(
     url='https://github.com/mcldev/djangocms-table',
     packages=['djangocms_table', 'djangocms_table.migrations'],
     install_requires=INSTALL_REQUIRES,
+    python_requires='>=3.9',
     license='LICENSE.txt',
     platforms=['OS Independent'],
     classifiers=CLASSIFIERS,
