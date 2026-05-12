@@ -9,3 +9,7 @@ env*
 djangocms_table.egg-info
 dist
 .idea/*
+
+__pycache__/
+*.py[cod]
+*$py.class
